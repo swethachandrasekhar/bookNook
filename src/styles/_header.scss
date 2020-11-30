@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+
+.test {
+  background-color: red;
+  height: 50px;
+}
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 90vh;
+  min-height: 500px;
+  background-image: url('../../src/backgroundImages/aaron-burden-6jYoil2GhVk-unsplash-new.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 4rem ;
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+.shoppingCartAndWishlist {
+
+  min-height: 50px;
+  /* background-color: lightgreen; */
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  
+}
+.shoppingCartAndWishlist li {
+
+  margin: 0 20px;
+}
+
+.wishlistCount, .cartCount {
+
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: brown;
+  font-size: 1.5rem;
+
+}
+.inventorySection img {
+
+  height: 250px; 
+  width: 200px;
+  object-fit:  cover;
+
+}
+.inventorySection {
+  display: flex;
+}
+.inventoryDisplay {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 100px 30px;
+  
+  
+}
+
+.filterMediaType {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  
+}
+.bookContainer {
+  margin-right: 20px ;
+}
+.bookCover {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+

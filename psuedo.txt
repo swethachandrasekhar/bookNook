@@ -1,0 +1,51 @@
+App name -  Booktopia
+
+An e-commerce site that Sells ebooks and Audiobooks
+
+MVP
+1. A web page that display all the books in the database with book details
+2. Provide add to cart button on each book 
+3. On clicking add to cart, the item in the cart should be updated
+
+
+Stretch goals
+
+1. Clicking on cart should bring up a cart section with all the books added to the cart along with the subtotal
+2. Provide filters on the side to allow user to filter by Media type(ebook / audiobook)
+3. Provide 'Add to Wishlist' button for user to add the book into a wishlist bucket which can be accessed at the top of the page (heart icon)
+
+
+Create a database of books(use firebase)
+- includes 
+    BookTitle
+    Author name
+    Image Url
+    price
+    media type
+
+
+Create Firebase JS file that can export the firebase instance
+
+Create the following components
+
+1. Header Component(contains the nav links)
+        - cart component
+            -clicking on cart should get the latest items in "Cart" table from the database and calculate subtotal
+        - Wishlist component 
+            Clicking on wishlist icon should get the latest items in 'Wishlist" table from teh DB and display them   
+2.  Create an inventory Component that contains the following child components
+        a. A filter Section Component
+        b. An inventory display component
+        c. A cart display component
+
+        
+    inventory section holds the follwing in the state and these are passed down to the child components as props
+      1. Full list of all the books in the DB
+      2. The ebooks list
+      3. The audiobooks list
+      4. The displayed list of books
+
+     cart display component  holds the state of Items in the cart
+     and has a function to update the subtotal based on the number of items in the cart
+
+      
