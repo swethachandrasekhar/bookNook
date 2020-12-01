@@ -71,17 +71,7 @@
 //   object-fit:  cover;
 
 // }
-.inventorySection {
-  display: flex;
-}
-.inventoryDisplay {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 100px 30px;
-  
-  
-}
+
 
 .filterMediaType {
   width: 200px;
@@ -89,18 +79,3 @@
   flex-direction: column;
   
 }
-.bookContainer {
-  margin-right: 20px ;
-}
-.bookCover {
-  display: flex;
-  flex-direction: column;
-}
-
-.bookDetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-

@@ -96,7 +96,8 @@ class CartDisplay extends Component {
                   <div className="cartItemBookDetails">
                     <img
                       className="cartImage"
-                      src={item[1].bookImage}
+                      // src={item[1].bookImage}
+                      src="../src/assets/becoming-53.jpg"
                       alt={item.title}
                     />
                     <p className="cartItemtitle">{item[1].title}</p>

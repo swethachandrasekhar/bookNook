@@ -32,6 +32,18 @@ class Inventory extends Component {
       let audioBooksArray = [];
 
       // Go over each item in the array and store in the temp array
+      console.log(`In here....`, firebaseObj);
+      // for (const book in firebaseObj) {
+       
+      //         if (book.mediaType === "eBooks") {
+      //     ebooksListArray.push(book);
+      //   } else if (book.mediaType === "audioBooks") {
+      //     audioBooksArray.push(book);
+      //   }
+
+      //   booksArray.push(book);
+      //   }
+      // }
       firebaseObj.forEach((book) => {
         if (book.mediaType === "eBooks") {
           ebooksListArray.push(book);

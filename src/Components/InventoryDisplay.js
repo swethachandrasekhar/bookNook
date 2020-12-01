@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Book from './Book.js'
 import firebase from "./firebase.js";
 
 
@@ -54,33 +54,21 @@ class InventoryDisplay extends Component {
       <div className="inventoryDisplay">
         {this.props.displayList.map((book, index) => {
           return (
-            <div className="bookContainer" key={index}>
-              <div className="bookCover">
-                <img className='bookCoverImage' src={book.bookImage} alt={book.title} />
-                <button className='toWishlist'
-                  onClick={() => {
-                    this.handleWishlist(book, index);
-                  }}
-                >
-                  {book.addedToWishlist === false
-                    ? `Add to Wishlist`
-                    : `Remove from Wishlist`}
-                </button>
-              </div>
+            <Book
+              book={book}
+              keyID={index}
+              imageSrc={book.bookImage}
+              bookTitle={book.title}
+              handleWishlist={this.handleWishlist}
+              
+              wishlistFlag={book.addedToWishlist}
+              authorName={book.authorName}
+              bookPrice={book.price}
+              addToCart={this.addToCart}
+              
+            />
 
-              <div className="bookDetails">
-                <h3>{book.title}</h3>
-                <p className='authorName'>{book.authorName}</p>
-                <p className='bookPrice'> $ {book.price}</p>
-              </div>
-              <button className='addToCart'
-                onClick={() => {
-                  this.addToCart(book, index);
-                }}
-              >
-                Add to cart
-              </button>
-            </div>
+            
           );
         })}
       </div>
