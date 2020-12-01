@@ -94,7 +94,7 @@ class Inventory extends Component {
   render() {
     console.log(`cart items`, this.state.cartItems);
     return (
-      <section className="inventorySection wrapper">
+      <section className="inventorySection fullWidthWrapper">
         <FilterSection
           // handleFilter={this.handleFilter}
           allbooks={this.state.books}
@@ -110,10 +110,10 @@ class Inventory extends Component {
           books={this.state.books}
         />
         <CartDisplay
-          // cartItems={this.state.cartItems}
-          // handleRemoveCartItem={this.handleRemoveCartItem}
-          // parentSetStateCartItems={this.parentSetStateCartItems}
-          // parentSetStateSubtotal={this.parentSetStateSubtotal}
+        // cartItems={this.state.cartItems}
+        // handleRemoveCartItem={this.handleRemoveCartItem}
+        // parentSetStateCartItems={this.parentSetStateCartItems}
+        // parentSetStateSubtotal={this.parentSetStateSubtotal}
         />
 
         <div className="wishlistDisplay"></div>

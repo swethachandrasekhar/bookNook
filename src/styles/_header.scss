@@ -7,11 +7,7 @@
   background-color: red;
   height: 50px;
 }
-.wrapper {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 
 .logo {
   height: 90vh;
@@ -68,13 +64,13 @@
   font-size: 1.5rem;
 
 }
-.inventorySection img {
+// .inventorySection img {
 
-  height: 250px; 
-  width: 200px;
-  object-fit:  cover;
+//   height: 250px; 
+//   width: 200px;
+//   object-fit:  cover;
 
-}
+// }
 .inventorySection {
   display: flex;
 }

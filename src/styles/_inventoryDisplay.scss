@@ -1,0 +1,93 @@
+.inventoryDisplay {
+    background-color: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 auto ;
+
+}
+
+.bookContainer {
+     width: 140px;
+     height: 350px;
+     margin: 10px 20px 30px 0px;   
+
+    .bookCover {
+        width: 140px;
+        height: 220px;
+
+        .bookCoverImage{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .bookDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+
+        .authorName {
+        text-align: left;            
+        font-size: 1.7rem;
+        // line-height: normal;
+    
+        overflow: hidden;
+        text-overflow: ellipsis;    
+        white-space: nowrap;
+        width: 100%;
+        
+        }
+
+        .bookPrice {
+            text-align: left;
+            font-size: 1.6rem;
+            line-height: normal;
+        }
+     }
+
+    
+
+}
+
+.bookCover {
+    position: relative;
+    button {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        font-size: 1.6rem;
+        visibility: hidden;
+    }
+}
+
+
+
+h3 {
+    // display: flex;
+    // flex-wrap: wrap;
+    padding: 15px 0 0 0;
+    font-size: 1.6rem;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    height: 35px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.addToCart {
+    width: 100%;
+    background-color:  #595959;
+    color: white;
+    
+    font-size: 1.3rem;
+    padding: 7px 0;
+}
+

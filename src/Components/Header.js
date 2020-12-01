@@ -90,11 +90,11 @@ class Header extends Component {
     console.log(`cart count and wishlist count `, this.state.cartCount, this.state.wishlistCount)
     return (
       <header>
-        <video
+        {/* <video
           src="https://youtu.be/hlWiI4xVXKY"
           autoPlay="true"
           loop="true"
-        ></video>
+        ></video> */}
         <nav className="shoppingCartAndWishlist">
           <li>
             <button>

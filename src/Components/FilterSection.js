@@ -35,7 +35,7 @@ import React, { Component } from 'react';
             console.log(this.props)
             return (
               <div className="filterMediaType">
-                <p>Media type</p>
+                <h4>Filter By</h4>
                 <div className="filterGroup" onChange={this.handleFilter}>
                   <div>
                     <input
@@ -43,8 +43,8 @@ import React, { Component } from 'react';
                       id="allItems"
                       name="filterSelection"
                       value="allItems"
-                    />allbooks
-                    <label htmlFor="allItems">All{(this.props.allbooks).length}</label>
+                    />
+                    <label htmlFor="allItems"> All {(this.props.allbooks).length}</label>
                   </div>
                   <div>
                     <input
@@ -53,7 +53,7 @@ import React, { Component } from 'react';
                       name="filterSelection"
                       value="eBooks"
                     />
-                    <label htmlFor="eBooksOnly">eBooks{(this.props.ebooksOnly).length}</label>
+                    <label htmlFor="eBooksOnly"> eBooks {(this.props.ebooksOnly).length}</label>
                   </div>
                   <div>
                     <input
@@ -62,8 +62,7 @@ import React, { Component } from 'react';
                       name="filterSelection"
                       value="audioBooks"
                     />
-                    <label htmlFor="audioBooksOnly">
-                      Audiobooks{(this.props.audioBooksOnly).length}
+                    <label htmlFor="audioBooksOnly"> Audiobooks {(this.props.audioBooksOnly).length}
                     </label>
                   </div>
                 </div>

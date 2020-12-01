@@ -56,8 +56,8 @@ class InventoryDisplay extends Component {
           return (
             <div className="bookContainer" key={index}>
               <div className="bookCover">
-                <img src={book.bookImage} alt={book.title} />
-                <button
+                <img className='bookCoverImage' src={book.bookImage} alt={book.title} />
+                <button className='toWishlist'
                   onClick={() => {
                     this.handleWishlist(book, index);
                   }}
@@ -70,15 +70,15 @@ class InventoryDisplay extends Component {
 
               <div className="bookDetails">
                 <h3>{book.title}</h3>
-                <p>{book.authorName}</p>
-                <p>{book.price}</p>
+                <p className='authorName'>{book.authorName}</p>
+                <p className='bookPrice'> $ {book.price}</p>
               </div>
-              <button
+              <button className='addToCart'
                 onClick={() => {
                   this.addToCart(book, index);
                 }}
               >
-                Add to Cart
+                Add to cart
               </button>
             </div>
           );

@@ -88,38 +88,44 @@ class CartDisplay extends Component {
           <p>Shopping Cart</p>
           <p>X items</p>
         </div>
-        <ul className="cartItems">
-          {this.state.cartItems.map((item, index) => {
-            return (
-              <li key={item[0]}>
-                <div>
-                  <img src={item[1].bookImage} alt={item.title} />
-                  <p>{item[1].title}</p>
-                  <p>{item[1].authorName}</p>
-                </div>
-                <div>
-                  <p>{item[1].price}</p>
-                  <button
-                    onClick={() => {
-                      this.handleRemoveCartItem(item[0]);
-                    }}
-                  >
-                    delete
-                  </button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-        <div>
+        <div className="cartItems">
+          <ul>
+            {this.state.cartItems.map((item, index) => {
+              return (
+                <li className="cartItem" key={item[0]}>
+                  <div className="cartItemBookDetails">
+                    <img
+                      className="cartImage"
+                      src={item[1].bookImage}
+                      alt={item.title}
+                    />
+                    <p className="cartItemtitle">{item[1].title}</p>
+                    <p className="cartItemAuthorName">{item[1].authorName}</p>
+                  </div>
+                  <div className="cartItemBookPrice">
+                    <p>{item[1].price}</p>
+                    <button
+                      onClick={() => {
+                        this.handleRemoveCartItem(item[0]);
+                      }}
+                    >
+                      delete
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
           <div>
-            <p>
-              Subtotal <span>{this.state.subtotal}</span>
-            </p>
-          </div>
-          <div>
-            <a href="">Continue Shopping</a>
-            <button className="checkOut">Checkout</button>
+            <div>
+              <p>
+                Subtotal <span>{this.state.subtotal}</span>
+              </p>
+            </div>
+            <div>
+              <a href="">Continue Shopping</a>
+              <button className="checkOut">Checkout</button>
+            </div>
           </div>
         </div>
       </div>

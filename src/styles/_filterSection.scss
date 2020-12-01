@@ -1,5 +1,31 @@
-.inventorySection {
+// .inventorySection {
    
-background-color: #fafafa;
-// background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(238,234,206,1) 0%);
+
+// // background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(238,234,206,1) 0%);
+// }
+
+.filterMediaType {
+    background-color: #fafafa;
+    min-width: 230px;
+    padding: 0 25px ;
+    // margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    // align-items: flex-start;
+    
+}
+
+h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: $buttonBackgroundColor;
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
