@@ -1,20 +1,45 @@
+// .inventorySection {
+//   display: flex;
+//   // flex-wrap: nowrap;
+//   flex-direction: row;
+//   max-width: 1500px;
+//   // width: 90%;
+//   // margin: 0 auto;
+//   justify-content: flex-start;
+//   align-items: flex-start;
+// }
+
+
+
 .inventoryDisplay {
     background-color: #fafafa;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 0 auto ;
+   
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    // width:70%;
 
 }
 
+.inventoryContainer {
+    display: flex;
+   padding-top: 40px;
+    margin: 0 auto ;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
 .bookContainer {
-     width: 140px;
-     height: 350px;
-     margin: 10px 20px 30px 0px;   
+     width: 160px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+    //  align-items: flex-start;
+     height: 380px;
+     margin: 20px 20px;
 
     .bookCover {
-        width: 140px;
+        // width: 140px;
         height: 220px;
 
         .bookCoverImage{
@@ -30,11 +55,14 @@
     justify-content: flex-end;
     align-items: flex-start;
     flex-wrap: nowrap;
+    margin: 10px 0 15px 0;
 
         .authorName {
         text-align: left;            
-        font-size: 1.7rem;
-        // line-height: normal;
+        font-size: 1.6rem;
+        line-height: normal;
+        margin: 0px 0 10px 0;
+
     
         overflow: hidden;
         text-overflow: ellipsis;    
@@ -47,6 +75,7 @@
             text-align: left;
             font-size: 1.6rem;
             line-height: normal;
+            // padding-top: 10px;
         }
      }
 
@@ -54,31 +83,19 @@
 
 }
 
-.bookCover {
-    position: relative;
-    button {
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        font-size: 1.6rem;
-        visibility: hidden;
-    }
-}
 
 
 
 h3 {
     // display: flex;
     // flex-wrap: wrap;
-    padding: 15px 0 0 0;
+    // padding: 15px 0 0 0;
     font-size: 1.6rem;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: normal;
-    height: 35px;
+    height: 40px;
     font-weight: 600;
     font-style: normal;
 }
@@ -87,8 +104,9 @@ h3 {
     width: 100%;
     background-color:  #595959;
     color: white;
-    
-    font-size: 1.3rem;
-    padding: 7px 0;
+    font-weight: bold;
+    font-size: 1.7rem;
+    padding: 8px 0;
+    line-height: normal;
 }
 

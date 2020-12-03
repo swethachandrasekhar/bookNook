@@ -14,28 +14,22 @@ import {
 // import BackgroundVideo from './backgroundVideo.js'
 
 class Header extends Component {
-
-
-  constructor(){
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      wishlistCount: '',
-      cartCount: '',
-    }
+      wishlistCount: "",
+      cartCount: "",
+    };
   }
 
-
-
-
   componentDidMount() {
-    console.log('inside header')
+    console.log("inside header");
 
     const dbRefCart = firebase.database().ref("cart");
-    const dbRefBooks = firebase.database().ref('books');
+    const dbRefBooks = firebase.database().ref("books");
 
-      dbRefCart.on("value", (data) => {
-     
-        //Grab data from database
+    dbRefCart.on("value", (data) => {
+      //Grab data from database
       const cartObject = data.val();
       // let cartArray = Object.values(cartObject);
       if (cartObject !== null) {
@@ -47,47 +41,48 @@ class Header extends Component {
         });
       } else {
         this.setState({
-          cartCount: 0
+          cartCount: 0,
         });
       }
+    });
+    dbRefBooks.on("value", (data) => {
+      //Grab data from database
+      const wishlistObject = data.val();
+      if (wishlistObject !== null) {
+        let booksArray = Object.values(wishlistObject);
 
-      })
-      dbRefBooks.on("value", (data) => {
-        //Grab data from database
-        const wishlistObject = data.val();
-        if (wishlistObject !== null) {
-          let booksArray = Object.values(wishlistObject);
+        const wishListArray = booksArray.filter((book) => {
+          if (book.addedToWishlist) {
+            return book;
+          }
+        });
 
-          const wishListArray = booksArray.filter((book) => {
-            if (book.addedToWishlist) {
-              return book;
-            }
-          });
+        const numberOfItemsInWishlist = wishListArray.length;
 
-          const numberOfItemsInWishlist = wishListArray.length;
+        this.setState({
+          wishlistCount: numberOfItemsInWishlist,
+        });
+      } else {
+        this.setState({
+          wishlistCount: 0,
+        });
+      }
+    });
 
-          this.setState({
-            wishlistCount: numberOfItemsInWishlist,
-          });
-        } else {
-          this.setState({
-            wishlistCount: 0,
-          });
-        }
-      });
-
-      // let wishlistArray = this.state.
-
-
+    // let wishlistArray = this.state.
+  }
+  openInNewTab = () => {
+    var win = window.open("./wishlist.html", "_blank");
+    win.focus();
+  };
   
-}
- openInNewTab = () => {
-  var win = window.open('./wishlist.html', '_blank');
-  win.focus();
-}
-
   render() {
-    console.log(`cart count and wishlist count `, this.state.cartCount, this.state.wishlistCount)
+    console.log("inside header.js", this.props.showCart);
+    // console.log(
+    //   `cart count and wishlist count `,
+    //   this.state.cartCount,
+    //   this.state.wishlistCount
+    // );
     return (
       <header>
         {/* <video
@@ -95,22 +90,44 @@ class Header extends Component {
           autoPlay="true"
           loop="true"
         ></video> */}
-        <nav className="shoppingCartAndWishlist">
-          <li>
-            <button>
-              <FontAwesomeIcon icon={faHeart} />
-            </button>
-            <p className="wishlistCount">{this.state.wishlistCount}</p>
-          </li>
-          <li>
-            <button>
+        <div className="siteHeader">
+          <h1 className="fullWidthWrapper">
+            {" "}
+            <span className="logoBook">Book</span>
+            <span className="logoPipe">📖</span>{" "}
+            <span className="logoTopia">topia</span>
+          </h1>
+
+          <nav className="shoppingCartAndWishlist">
+            <li>
+              <button
+                className="wishlist"
+                onClick={this.props.handleShowWishlist}
+              >
+                <FontAwesomeIcon icon={faHeart} className="wishlistIcon" />
+                <span>Wishlist</span>
+              </button>
+              <p className="wishlistCount">{this.state.wishlistCount}</p>
+            </li>
+            <li>
+              {/* <input type="checkbox" id="toggle" name="toggle"></input>
+            <label class="cartCloseButton" htmlFor="toggle">
               <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
-            <p className="cartCount">{this.state.cartCount}</p>
-          </li>
-        </nav>
-        <div className="logo">
-          <h1 className="wrapper">Booktopia</h1>
+            </label> */}
+
+              <button className="showCart" onClick={this.props.handleShowCart}>
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  className="showCartIcon"
+                />
+                <span>Cart</span>
+              </button>
+              <p className="cartCount">{this.state.cartCount}</p>
+            </li>
+          </nav>
+        </div>
+        <div className="logo ">
+          {/* <h1 className="wrapper">Booktopia</h1> */}
         </div>
         {/* <video  loop autoplay>
             <source src="" type="video/mp4">

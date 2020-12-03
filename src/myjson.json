@@ -1,202 +1,226 @@
 {
   "books": [
-    {
-      "title": "A Promised Land",
-      "authorName": "Barack Obama",
-      "bookImage": "public/assets/a-promised-land-2.jpg",
-      "price": 18.99,
-      "inventory": 15,
-      "mediaType": "eBooks",
-      "addedToWishlist": false
-    },
+
     {
       "title": "Becoming",
       "authorName": "Michelle Obama",
-      "bookImage": "public/assets/becoming-53.jpg",
+      "bookImage": "./becoming-53.jpg",
       "price": 17.99,
       "inventory": 15,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
+    {
+      "title": "A Promised Land",
+      "authorName": "Barack Obama",
+      "bookImage": "./a-promised-land-2.jpg",
+      "price": 18.99,
+      "inventory": 15,
+      "mediaType": "eBooks",
+      "addedToWishlist": false,
+      "category": "nonfiction"
+    },
+    
     {
       "inventory": 15,
       "title": "Between the world and me",
       "authorName": "Ta-Nehisi Coates",
-      "bookImage": "public/assets/between-the-world-and-me.jpg",
+      "bookImage": "./between-the-world-and-me.jpg",
       "price": 13.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "In pieces",
       "authorName": "Sally Field",
-      "bookImage": "public/assets/in-pieces-15.jpg",
+      "bookImage": "./in-pieces-15.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "How to Fail at Flirting",
       "authorName": "Denise Williams",
-      "bookImage": "public/assets/aaron-burden-6jYoil2GhVk-unsplash.jpg",
+      "bookImage": "./aaron-burden-6jYoil2GhVk-unsplash.jpg",
       "price": 13.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "Me and White Supremacy",
       "authorName": "Layla Saad",
-      "bookImage": "public/assets/aaron-burden-6jYoil2GhVk-unsplash.jpg",
+      "bookImage": "./aaron-burden-6jYoil2GhVk-unsplash.jpg",
       "price": 17.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "The Lost Girls of Paris",
       "authorName": "Pam Jenoff",
-      "bookImage": "public/assets/aaron-burden-6jYoil2GhVk-unsplash.jpg",
+      "bookImage": "./aaron-burden-6jYoil2GhVk-unsplash.jpg",
       "price": 11.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "The Subtle Art of Not Giving a F*ck",
       "authorName": "Mark Manson",
-      "bookImage": "public/assets/aaron-burden-6jYoil2GhVk-unsplash.jpg",
+      "bookImage": "./aaron-burden-6jYoil2GhVk-unsplash.jpg",
       "price": 12.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "The Tattooist of Auschwitz",
       "authorName": "Heather Morris",
-      "bookImage": "public/assets/aaron-burden-6jYoil2GhVk-unsplash.jpg",
+      "bookImage": "./aaron-burden-6jYoil2GhVk-unsplash.jpg",
       "price": 13.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "Where the Crawdads Sing",
       "authorName": "Delia Owens",
-      "bookImage": "public/assets/where-the-crawdads-sing.jpg",
+      "bookImage": "./where-the-crawdads-sing.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "The Silent Patient",
       "authorName": "Alex Michaelides",
-      "bookImage": "public/assets/the-silent-patient-1.jpg",
+      "bookImage": "./the-silent-patient-1.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "American Dirt (Oprah's Book Club)",
       "authorName": "Jeanine Cummins",
-      "bookImage": "public/assets/american-dirt-oprah-s-book-club.jpg",
+      "bookImage": "./american-dirt-oprah-s-book-club.jpg",
       "price": 15.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "My Dark Vanessa",
       "authorName": "Kate Elizabeth Russell",
-      "bookImage": "public/assets/my-dark-vanessa-1.jpg",
+      "bookImage": "./my-dark-vanessa-1.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "The Henna Artist",
       "authorName": "Alka Joshi",
-      "bookImage": "public/assets/the-henna-artist.jpg",
+      "bookImage": "./the-henna-artist.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "The Forgotten Home Child",
       "authorName": "Genevieve Graham",
-      "bookImage": "public/assets/the-forgotten-home-child.jpg",
+      "bookImage": "./the-forgotten-home-child.jpg",
       "price": 9.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "A Conspiracy of Bones",
       "authorName": "Kathy Reichs",
-      "bookImage": "public/assets/a-conspiracy-of-bones-and-blood-1.jpg",
+      "bookImage": "./a-conspiracy-of-bones-and-blood-1.jpg",
       "price": 9.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "Walk the Wire",
       "authorName": "David Baldacci",
-      "bookImage": "public/assets/walk-the-wire-1.jpg",
+      "bookImage": "./walk-the-wire-1.jpg",
       "price": 14.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "Camino Winds",
       "authorName": "John Grisham",
-      "bookImage": "public/assets/camino-winds-2.jpg",
+      "bookImage": "./camino-winds-2.jpg",
       "price": 16.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "fiction"
     },
     {
       "inventory": 15,
       "title": "The Power of Now",
       "authorName": "Eckhart Tolle",
-      "bookImage": "public/assets/the-power-of-now-1.jpg",
+      "bookImage": "./the-power-of-now-1.jpg",
       "price": 20.99,
       "mediaType": "eBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "Atomic Habits",
       "authorName": "James Clear",
-      "bookImage": "public/assets/atomic-habits-tiny-changes-remarkable-results.jpg",
+      "bookImage": "./atomic-habits-tiny-changes-remarkable-results.jpg",
       "price": 16.99,
       "mediaType": "audioBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "Think Like a Monk",
       "authorName": " Jay Shetty",
-      "bookImage": "public/assets/think-like-a-monk-2.jpg",
+      "bookImage": "./think-like-a-monk-2.jpg",
       "price": 17.99,
       "mediaType": "audioBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     },
     {
       "inventory": 15,
       "title": "Burnout",
       "authorName": "Emily Nagoski, PhD, Amelia Nagoski, DMA",
-      "bookImage": "public/assets/burnout-42.jpg",
+      "bookImage": "./burnout-42.jpg",
       "price": 13.99,
       "mediaType": "audioBooks",
-      "addedToWishlist": false
+      "addedToWishlist": false,
+      "category": "nonfiction"
     }
   ]
 }

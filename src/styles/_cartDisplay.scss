@@ -1,52 +1,85 @@
+
+.cartWrapper {
+  width: 85%;
+  margin: 0 auto;
+  
+}
+
+
 .cartDisplay {
-    width: 30vw;
+    min-width: 600px;
+    width: 0;
+
     font-family: $bodyFont;
-    min-width: 300px;
-    // position: fixed;
-    // top: 0;
-    // right: 10;
     background-color: #fafafa;
-    
-    // z-index: 9;
-
     position: fixed;
-  top: 0;
-  right: 0;
-  width: 40%;
-//   background-color: white;
-  height: 100%;
-  z-index: 20;
-  box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.521);
-  overflow-y: scroll;
+    // top: 0;
+    top: -13000px;
+    right: 0;
+    height: 100%;
+    z-index: 20;
+    box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.521);
+    overflow-y: scroll;
 
+}
+
+.cartDisplay.visible {
+   top: 0;
 }
 
 .cartItems {
 
-    // padding-bottom: 100px;
-    // margin-bottom: 100px;
-    // overflow-y: scroll;
-    // height: 100vh;
+    
 
     .cartItem {
 
         display: flex;
         justify-content: space-between;
-        margin: 10px 0;
+        margin: 25px 0;
         // padding: ;
         // align-items: ;
 
     }
 
-   
+   .cartItemBookPrice {
+     font-size: 1.8rem;
+     font-weight: bold;
+   }
 
+   .subTotal {
+     text-align: right;
+     margin: 20px 0;
+
+     .subTotalAmount {
+       padding-left: 60px;
+       font-weight: bold;
+     }
+   }
+   .carFooter {
+     display: flex;
+     justify-content: space-between;
+   }
    
 }
 
 .cartItemBookDetails{
             display: flex;
+            
+          .bookDetailsAndRemove {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0 15px;
 
-             .cartImage {
+
+            .cartTitleAndAuthor {
+              text-align: left;
+
+            }
+          }
+             
+          .cartImage {
 
             height: 100px;
             width: 80px;
@@ -54,11 +87,65 @@
 
              }
             .cartItemtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            line-height: normal;
             }
 
         .cartItemAuthorName {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            color: rgb(65, 63, 63);
         }
 
         }
+
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 30px 0;
+  font-weight: bold;
+}
+
+.cartCloseButton {
+  display: flex;
+  margin: 30px 0;
+}
+
+.removeFromCart {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.6rem;
+  font-family: $bodyFont;
+  color: rgb(87, 86, 86);
+}
+
+.checkOut {
+  width: 45%;
+  background-color: #a00b0b;
+  font-family: $bodyFont;
+  padding: 8px;
+  line-height: normal;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.6rem;
+
+}
+.carFooter {
+    a {
+      font-size: 1.7rem;
+      color: black;
+      font-weight: bold;
+      padding-top: 16px;
+      line-height: normal;
+    }
+}
+.removeFromCart:hover, .removeFromCart:focus {
+color:#a00b0b ;
+
+}
+.checkOut:hover {
+  cursor: pointer;
+}

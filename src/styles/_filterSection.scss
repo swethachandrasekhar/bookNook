@@ -6,22 +6,31 @@
 
 .filterMediaType {
     font-family: $bodyFont;
-    background-color: #fafafa;
+    // background-color: #fafafa;
     min-width: 230px;
-    padding: 0 25px ;
+    // width: 10%;
+    padding: 40px 25px ;
     // margin-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    // align-items: flex-start;
+    align-items: flex-start;
+    background-color: #fafafa;
+    // height: 100;
+    padding-bottom: 100%;
+    // margin-bottom: -100%
     
 }
 
 h4 {
-    text-transform: uppercase;
+    // text-transform: capitalize;
     font-weight: bold;
-    font-size: 2rem;
-    background-color: $buttonBackgroundColor;
+    font-size: 1.8rem;
+    padding: 10px 15px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgb(126, 121, 121);
+    color: white;
 }
 
 .filterGroup {
@@ -29,4 +38,27 @@ h4 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
+    background-color: rgba(230, 223, 223, 0.301);
+}
+
+.filterButton {
+    width: 100%;
+    position: relative;
+    // padding: 5px 10px;
+    input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    label {
+        margin: 10px 0;
+        padding-bottom: 3px;
+        border-bottom: 1px solid grey;
+        // background-color: grey;
+        width: 100%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
 }

@@ -1,9 +1,15 @@
-.fullWidthWrapper {
-  max-width: 1300px;
-  width: 98%;
-  margin: 0 auto;
-}
-
 .inventorySection {
   display: flex;
+  // flex-wrap: nowrap;
+  flex-direction: row;
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
+
+.fullWidthWrapper {
+  
+}
+

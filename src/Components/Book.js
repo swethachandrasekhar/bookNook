@@ -21,25 +21,26 @@ const Book = (props) => {
             }}
           >
             {wishlistFlag === false
-              ? `Add to Wishlist`
+              ? `Add to Wishlist ♥️`
               : `Remove from Wishlist`}
           </button>
         </div>
-
-        <div className="bookDetails">
-          <h3>{bookTitle}</h3>
-          <p className="authorName">{authorName}</p>
-          <p className="bookPrice"> $ {bookPrice}</p>
-        </div>
-        <button
-          className="addToCart"
-          onClick={() => {
-            addToCart(book, keyID);
-          }}
-        >
-          Add to cart
-        </button>
-      </div>
+       
+          <div className="bookDetails">
+            <h3>{bookTitle}</h3>
+            <p className="authorName">{authorName}</p>
+            <p className="bookPrice"> $ {bookPrice}</p>
+          </div>
+          <button
+            className="addToCart"
+            onClick={() => {
+              addToCart(book, keyID);
+            }}
+          >
+            Add to cart
+          </button>
+          </div>
+      
     );
 }
 

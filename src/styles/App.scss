@@ -3,5 +3,8 @@
 @import '/typography';
 @import '/header';
 @import '/filterSection';
+@import './inventory';
 @import '/_inventoryDisplay.scss';
-@import '/_cartDisplay.scss'
+@import '/_cartDisplay.scss';
+@import './book';
+@import './footer';

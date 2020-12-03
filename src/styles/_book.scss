@@ -1,0 +1,40 @@
+
+.bookCover {
+    position: relative;
+   .toWishlist {
+
+    z-index: 10;
+    
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        font-size: 1.6rem;
+        // height: 100%;
+            width: 100%;
+            border: none;
+            // font-weight: bold;
+            background-color:#fafafae5;
+            padding: 20px 0;
+        visibility: hidden;
+        -webkit-box-shadow: inset -2px 3px 40px 7px #6D6D6D; 
+        box-shadow: inset -2px 3px 40px 7px #6D6D6D;
+}
+}
+
+.bookCover:hover {
+    .toWishlist {
+        visibility: visible;
+    }
+}
+
+.addToCart {
+    border: 4px solid transparent
+}
+
+.addToCart:hover {
+    background-color: #fafafa;
+    border: 4px solid rgb(71, 71, 71);
+    color: rgb(71, 71, 71);
+
+}
