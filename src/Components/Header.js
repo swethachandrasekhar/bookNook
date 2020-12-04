@@ -51,7 +51,7 @@ class Header extends Component {
         const wishListArray = booksArray.filter((book) => {
           if (book.addedToWishlist) {
             return book;
-          }
+          } 
         });
 
         const numberOfItemsInWishlist = wishListArray.length;
@@ -75,8 +75,9 @@ class Header extends Component {
         <a href="#mainContent" className="skipLink">
           Skip to main content.
         </a>
-        <div className="wrapper">
-          <div className="siteHeader">
+
+        <div className="siteHeader">
+          <div className="siteHeaderWrapper">
             <h1>
               {" "}
               <span className="logoBook">Book</span>
@@ -117,6 +118,7 @@ class Header extends Component {
                 <p className="cartCount">{this.state.cartCount}</p>
               </li>
             </nav>
+          
           </div>
         </div>
         <div className="logo "></div>

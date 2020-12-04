@@ -39,9 +39,18 @@ img {
 
 
 .wrapper {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+}
+
+.siteHeaderWrapper {
+max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+   display: flex;
+  justify-content: space-between;
+
 }
 
 .fullWidthWrapper {

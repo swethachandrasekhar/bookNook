@@ -18,7 +18,7 @@ class InventoryDisplay extends Component {
     book.inventory = book.inventory - 1;
 
     //Update the inventory in the database
-    dbItemRef.set(book);
+    dbItemRef.update(book);
   };
 
   //Function to handle Add / Remove from Wishlist button click
