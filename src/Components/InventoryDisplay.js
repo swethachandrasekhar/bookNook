@@ -51,31 +51,23 @@ class InventoryDisplay extends Component {
     // Use require context to grab the images
     const images = require.context(`./../assets`, true);
 
-    return (
-      // <div className="inventoryDisplay" >
-        // <div className="inventoryContainer">
-
-          
-            this.props.displayList.map((book, index) => {
-            const img_src = images(book.bookImage);
-            return (
-              // Calling book component to display each book
-              <Book
-                book={book}
-                keyID={index}
-                imageSrc={img_src.default}
-                bookTitle={book.title}
-                handleWishlist={this.handleWishlist}
-                wishlistFlag={book.addedToWishlist}
-                authorName={book.authorName}
-                bookPrice={book.price}
-                addToCart={this.addToCart}
-              />
-            );
-          })
-        // </div>
-      // {/* </div> */}
-    );
+    return this.props.displayList.map((book, index) => {
+      const img_src = images(book.bookImage);
+      return (
+        // Calling book component to display each book
+        <Book
+          book={book}
+          keyID={index}
+          imageSrc={img_src.default}
+          bookTitle={book.title}
+          handleWishlist={this.handleWishlist}
+          wishlistFlag={book.addedToWishlist}
+          authorName={book.authorName}
+          bookPrice={book.price}
+          addToCart={this.addToCart}
+        />
+      );
+    });
   }
 }
 
