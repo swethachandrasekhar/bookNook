@@ -14,22 +14,28 @@ class CartDisplay extends Component {
     };
   }
 
-  handleRemoveCartItem = (index) => {
+  handleRemoveCartItem = (bookTitle, index) => {
     const dbRefCart = firebase.database().ref(`cart`);
-
     const newCartArray = this.state.cartItems.filter((cartItem) => {
       return cartItem[0] !== index;
     });
-    dbRefCart.on("value", (data) => {
-      // console.log(data.val());
+    let bookIndex = "";
+    const bookItem = this.props.allbooks.filter((book, index) => {
+      if (book.title === bookTitle) {
+        bookIndex = index;
+      }
+      return book.title === bookTitle;
     });
-    dbRefCart.child(index).remove();
-    // this.props.parentSetStateCartItems(newCartArray);
+    console.log(bookItem);
+    bookItem[0].inventory = bookItem[0].inventory + 1;
+    const dbRef = firebase.database().ref(`books/${bookIndex}`);
+    console.log(bookItem);
 
+    dbRefCart.child(index).remove();
+     dbRef.update(bookItem[0]);
     this.setState({
       cartItems: newCartArray,
     });
-    // console.log("The cart array is now this ", newCartArray);
   };
 
   componentDidMount() {
@@ -88,7 +94,7 @@ class CartDisplay extends Component {
             <FontAwesomeIcon icon={faTimes} />
           </label> */}
           <button className="cartCloseButton" onClick={this.cartCloseButton}>
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={faTimes} aria-label="Close" />
           </button>
           <div className="cartHeader">
             <p>Shopping Cart</p>
@@ -107,7 +113,7 @@ class CartDisplay extends Component {
                         className="cartImage"
                         // src={item[1].bookImage}
                         src={img_src.default}
-                        alt={item.title}
+                        alt={item[1].title}
                       />
                       <div className="bookDetailsAndRemove">
                         <div className="cartTitleAndAuthor">
@@ -119,7 +125,7 @@ class CartDisplay extends Component {
                         <button
                           className="removeFromCart"
                           onClick={() => {
-                            this.handleRemoveCartItem(item[0]);
+                            this.handleRemoveCartItem(item[1].title, item[0]);
                           }}
                         >
                           Remove
@@ -143,7 +149,9 @@ class CartDisplay extends Component {
                 </p>
               </div>
               <div className="carFooter">
-                <a href="#">Continue Shopping</a>
+                <a href="#mainContent" onClick={this.cartCloseButton}>
+                  Continue Shopping
+                </a>
                 <button className="checkOut">Checkout</button>
               </div>
             </div>

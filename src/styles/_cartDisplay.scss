@@ -20,6 +20,7 @@
     z-index: 20;
     box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.521);
     overflow-y: scroll;
+  
 
 }
 
@@ -29,6 +30,7 @@
 
 .cartItems {
 
+  padding-bottom: 50px;
     
 
     .cartItem {
@@ -81,8 +83,8 @@
              
           .cartImage {
 
-            height: 100px;
-            width: 80px;
+            height: 120px;
+            width: 85px;
             object-fit: cover;
 
              }
@@ -109,6 +111,11 @@
 .cartCloseButton {
   display: flex;
   margin: 30px 0;
+  background: none;
+  font-size: 4rem;
+  padding: 5px;
+  border: none;
+  
 }
 
 .removeFromCart {
@@ -119,6 +126,7 @@
   font-size: 1.6rem;
   font-family: $bodyFont;
   color: rgb(87, 86, 86);
+  padding-bottom: 3px;
 }
 
 .checkOut {
@@ -130,7 +138,8 @@
   color: white;
   border: none;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  border: 4px solid transparent;
 
 }
 .carFooter {
@@ -148,4 +157,43 @@ color:#a00b0b ;
 }
 .checkOut:hover {
   cursor: pointer;
+  background-color: #fafafa;
+  color:#a00b0b ;
+  border: 4px solid #a00b0b ;
+}
+
+.cartCloseButton:hover, .cartCloseButton:focus {
+  color:#a00b0b;
+  cursor: pointer;
+
+}
+
+.carFooter:hover, .carFooter:focus {
+
+  a {
+    color:#a00b0b ;
+  }
+}
+
+@media (max-width: 900px){
+
+  .cartDisplay {
+    min-width: 350px;
+  }
+
+}
+
+@media (max-width: 550px){
+
+  .cartDisplay {
+    min-width: 100vw;
+  }
+
+  .cartHeader {
+    font-size: 1.7rem;
+     p {
+       padding-left: 10px;
+     }
+  }
+
 }

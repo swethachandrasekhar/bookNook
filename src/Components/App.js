@@ -60,9 +60,17 @@ class App extends Component {
           CartDisplayState={this.CartDisplayState}
           WishlistDisplayState={this.WishlistDisplayState}
         />
-        <a href="#" className="backtoTop">↑</a>
+        <a href="#mainContent" className="backtoTop" aria-label="back to the top">
+          ↑
+        </a>
         <footer>
-          <p>Created @ Juno College | Swetha Chandrasekhar</p>
+          <div className="wrapper footerText">
+            <p>All Product design and images credited to Rakuten Kobo Inc | PRH</p>
+            <p>
+              Created @ <a href="https://junocollege.com/"> Juno College </a>|
+              Swetha Chandrasekhar
+            </p>
+          </div>
         </footer>
       </div>
     );

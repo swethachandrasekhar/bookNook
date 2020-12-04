@@ -1,13 +1,3 @@
-// .inventorySection {
-//   display: flex;
-//   // flex-wrap: nowrap;
-//   flex-direction: row;
-//   max-width: 1500px;
-//   // width: 90%;
-//   // margin: 0 auto;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-// }
 
 
 
@@ -29,76 +19,7 @@
     align-items: flex-start;
 }
 
-.bookContainer {
-     width: 160px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-    //  align-items: flex-start;
-     height: 380px;
-     margin: 20px 20px;
 
-    .bookCover {
-        // width: 140px;
-        height: 220px;
-
-        .bookCoverImage{
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-    }
-
-    .bookDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    margin: 10px 0 15px 0;
-
-        .authorName {
-        text-align: left;            
-        font-size: 1.6rem;
-        line-height: normal;
-        margin: 0px 0 10px 0;
-
-    
-        overflow: hidden;
-        text-overflow: ellipsis;    
-        white-space: nowrap;
-        width: 100%;
-        
-        }
-
-        .bookPrice {
-            text-align: left;
-            font-size: 1.6rem;
-            line-height: normal;
-            // padding-top: 10px;
-        }
-     }
-
-    
-
-}
-
-
-
-
-h3 {
-    // display: flex;
-    // flex-wrap: wrap;
-    // padding: 15px 0 0 0;
-    font-size: 1.6rem;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: normal;
-    height: 40px;
-    font-weight: 600;
-    font-style: normal;
-}
 
 .addToCart {
     width: 100%;

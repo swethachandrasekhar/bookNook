@@ -11,7 +11,12 @@ const FilterButton = (props) => {
       />
       <label htmlFor={props.id}>
         {" "}
-        {props.labelText} {props.labelNumberOfItems}
+        {props.labelText}{" "}
+        <span className='itemsCount'>
+          {props.labelNumberOfItems === ""
+            ? null
+            : `(${props.labelNumberOfItems})`}{" "}
+        </span>
       </label>
     </div>
   );

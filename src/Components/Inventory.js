@@ -17,6 +17,7 @@ class Inventory extends Component {
       wishlistItems: [],
       subtotal: 0,
       mainDisplay: [],
+      emptyList: false,
     };
   }
 
@@ -35,27 +36,31 @@ class Inventory extends Component {
 
       // Go over each item in the array and store in the temp array
       console.log(`In here....`, firebaseObj);
+      if (firebaseObj !== null) {
+        firebaseObj.forEach((book) => {
+          if (book.mediaType === "eBooks") {
+            ebooksListArray.push(book);
+          } else if (book.mediaType === "audioBooks") {
+            audioBooksArray.push(book);
+          }
 
-      firebaseObj.forEach((book) => {
-        if (book.mediaType === "eBooks") {
-          ebooksListArray.push(book);
-        } else if (book.mediaType === "audioBooks") {
-          audioBooksArray.push(book);
-        }
+          booksArray.push(book);
+        });
 
-        booksArray.push(book);
-      });
-      console.log(booksArray);
+        console.log(booksArray);
 
-
-      this.setState({
-        books: booksArray,
-        ebooksList: ebooksListArray,
-        audioBookslist: audioBooksArray,
-        mainDisplay: booksArray,
-        displayList: booksArray,
-        
-      });
+        this.setState({
+          books: booksArray,
+          ebooksList: ebooksListArray,
+          audioBookslist: audioBooksArray,
+          mainDisplay: booksArray,
+          displayList: booksArray,
+        });
+      } else {
+        this.setState({
+          emptyList : true
+        });
+      }
     });
 
     
@@ -121,51 +126,57 @@ class Inventory extends Component {
   }
 
   render() {
-    console.log("inside inventory.js", this.props.showCart);
-    // console.log(`cart items`, this.state.cartItems);
-    return (
-      <section className="inventorySection">
-        <FilterSection
-          // handleFilter={this.handleFilter}
-          allbooks={this.state.books}
-          ebooksOnly={this.state.ebooksList}
-          audioBooksOnly={this.state.audioBookslist}
-          mainDisplay={this.state.mainDisplay}
-          displayList={this.state.displayList}
-          parentSetStateDisplayList={this.parentSetStateDisplayList}
-          parentSetStateMainDisplay={this.parentSetStateMainDisplay}
-          displayWishlist={this.displayWishlist}
-        />
+    
+    return this.state.emptyList ? (
+      <div className="errorMessage">
+        Sorry☹️! Something went wrong. Please try again later{" "}
+      </div>
+    ) : (
+      <main id='mainContent'>
+        <section className="inventorySection">
+          <FilterSection
+            // handleFilter={this.handleFilter}
+            allbooks={this.state.books}
+            ebooksOnly={this.state.ebooksList}
+            audioBooksOnly={this.state.audioBookslist}
+            mainDisplay={this.state.mainDisplay}
+            displayList={this.state.displayList}
+            parentSetStateDisplayList={this.parentSetStateDisplayList}
+            parentSetStateMainDisplay={this.parentSetStateMainDisplay}
+            displayWishlist={this.displayWishlist}
+          />
 
-        <InventoryDisplay
-          mainDisplay={this.state.mainDisplay}
-          displayList={this.state.displayList}
-          addToCart={this.addToCart}
-          parentSetStateBooks={this.parentSetStateBooks}
-          books={this.state.books}
-          displayWishlist={this.displayWishlist}
-          parentSetStateDisplayList={this.parentSetStateDisplayList}
-        />
-        <CartDisplay
-          showCart={this.props.showCart}
-          CartDisplayState={this.props.CartDisplayState}
-          // cartItems={this.state.cartItems}
-          // handleRemoveCartItem={this.handleRemoveCartItem}
-          // parentSetStateCartItems={this.parentSetStateCartItems}
-          // parentSetStateSubtotal={this.parentSetStateSubtotal}
-        />
+          <InventoryDisplay
+            mainDisplay={this.state.mainDisplay}
+            displayList={this.state.displayList}
+            addToCart={this.addToCart}
+            parentSetStateBooks={this.parentSetStateBooks}
+            books={this.state.books}
+            displayWishlist={this.displayWishlist}
+            parentSetStateDisplayList={this.parentSetStateDisplayList}
+          />
+          <CartDisplay
+            showCart={this.props.showCart}
+            CartDisplayState={this.props.CartDisplayState}
+            allbooks={this.state.books}
+            // cartItems={this.state.cartItems}
+            // handleRemoveCartItem={this.handleRemoveCartItem}
+            // parentSetStateCartItems={this.parentSetStateCartItems}
+            // parentSetStateSubtotal={this.parentSetStateSubtotal}
+          />
 
-        <WishlistDisplay
-          showWishlist={this.props.showWishlist}
-          WishlistDisplayState={this.props.WishlistDisplayState}
-          // cartItems={this.state.cartItems}
-          // handleRemoveCartItem={this.handleRemoveCartItem}
-          // parentSetStateCartItems={this.parentSetStateCartItems}
-          // parentSetStateSubtotal={this.parentSetStateSubtotal}
-        />
+          <WishlistDisplay
+            showWishlist={this.props.showWishlist}
+            WishlistDisplayState={this.props.WishlistDisplayState}
+            // cartItems={this.state.cartItems}
+            // handleRemoveCartItem={this.handleRemoveCartItem}
+            // parentSetStateCartItems={this.parentSetStateCartItems}
+            // parentSetStateSubtotal={this.parentSetStateSubtotal}
+          />
 
-        {/* <div className="wishlistDisplay"></div> */}
-      </section>
+          {/* <div className="wishlistDisplay"></div> */}
+        </section>
+      </main>
     );
   }
 }

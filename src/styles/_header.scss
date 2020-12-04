@@ -12,24 +12,28 @@ header{
 }
 
 .siteHeader {
+ 
   display: flex;
+  justify-content: space-between;
   background-color: rgb(247, 247, 247);
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 4;
--webkit-box-shadow: inset -2px 3px 40px 7px #6D6D6D; 
-box-shadow: inset -2px 3px 40px 7px #6D6D6D;
+-webkit-box-shadow: inset -2px 3px 40px 7px #9e9e9e; 
+box-shadow: inset -2px 3px 40px 7px #9e9e9e; 
 }
 h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-family: serif;
+    margin: 0;
     font-size: 4rem;
-    padding-left: 40px;
+    
+    padding: 4px 0 0 40px;
     // text-align: left;
     // dis
     .logoBook {
@@ -53,7 +57,7 @@ h1 {
 
 
 .logo {
-  margin-top: 8vh;
+  margin-top: 7vh;
   height: 70vh;
   min-height: 600px;
   // width: 100vw;
@@ -106,35 +110,33 @@ h1 {
   position: relative;
     
 }
-.shoppingCartAndWishlist li:hover {
+.shoppingCartAndWishlist li:hover,
+.shoppingCartAndWishlist li:focus  {
 
     cursor: pointer;
 }
 .wishlistCount, .cartCount {
 
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   border-radius: 50%;
   background-color: brown;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   position: absolute;
-  top: 10%;
-  right: 0;
-  padding: 4px 0;
+  top: 12px;
+  right: 1px;
+  padding: 3px 0;
   line-height: normal;
   color: white;
   font-weight: bold;
 
 }
 
+.cartCount {
+  right: -4px;
+}
 
-// .inventorySection img {
 
-//   height: 250px; 
-//   width: 200px;
-//   object-fit:  cover;
-
-// }
 
 
 .filterMediaType {
@@ -143,7 +145,7 @@ h1 {
   flex-direction: column;
   
 }
-.wishlist {
+.wishlist, .showCart  {
   
   border: none;
   background: none;
@@ -152,12 +154,12 @@ h1 {
   span {
     padding: 3px;
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     // color: darkred;
   }
 
-  .wishlistIcon {
-    font-size: 3rem;
+  .wishlistIcon, .showCartIcon {
+    font-size: 2.5rem;
   }
 }
 
@@ -167,24 +169,39 @@ h1 {
   cursor: pointer;
 }
 
-.showCart {
-  border: none;
-  background: none;
-  color: rgb(88, 87, 87);
- padding: 20px 0 10px 0;
-  span {
-    padding: 3px;
-    display: block;
-    font-size: 1.4rem;
-    // color: darkred;
-    // color: darkred;
-  }
-  .showCartIcon{
-    font-size: 3rem;
+//MEDIA QUERIES
 
+
+@media (max-width: 450px){
+
+  .siteHeader {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
- 
- 
+
+  h1 {
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0 0 0;
+    
+    .logoBook, .logoTopia {
+      font-size: 2.7rem;
+      padding: 0;
+    }
+    .logoPipe {
+      font-size: 4.5rem;
+    }
+    
+  }
+
+  .shoppingCartAndWishlist {
+    margin: 0;
+    padding-right: 15px;
+      }
+
+  .showCart, .wishlist {
+    padding: 15px 0 0 0 ;
+  }
 }
-
-

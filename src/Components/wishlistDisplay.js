@@ -17,6 +17,7 @@ class WishlistDisplay extends Component {
     this.state = {
       subtotal: 0,
       wishlistArray: [],
+      emptyList: false
     };
   }
   componentDidMount() {
@@ -26,18 +27,23 @@ class WishlistDisplay extends Component {
       //Grab data from database
       let cartObject = data.val();
 
+      if(cartObject !== null){
+
         cartObject.forEach((book)=>{
             if (book.addedToWishlist === true){
                 wishlistItemsArray.push(book);
             }
-
+  
         })
-
+  
         console.log(`wishlistItemsArray`, wishlistItemsArray);
-
+  
         this.setState({
             wishlistArray : wishlistItemsArray,
         })
+
+      }
+
 
     });
   }
@@ -65,7 +71,7 @@ class WishlistDisplay extends Component {
             <FontAwesomeIcon icon={faTimes} />
           </label> */}
           <button className="cartCloseButton" onClick={this.cartCloseButton}>
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={faTimes} aria-label="Close" />
           </button>
           <div className="cartHeader">
             <p>Wishlist Items</p>

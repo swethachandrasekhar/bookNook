@@ -5,14 +5,14 @@ $bodyFont : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 .wrapper {
   // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   max-width: 1300px;
-  width: 95%;
+  width: 70%;
   margin: 0 auto;
   // border: red solid 1px;
 }
 
 .fullWidthWrapper {
   max-width: 1700px;
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   // border: red solid 1px;
 }
@@ -23,6 +23,7 @@ html {
 
 * {
   padding: 0;
+  // border: 1px solid red;
   margin: 0;
 }
 
@@ -48,13 +49,51 @@ img {
 .backtoTop {
   position: fixed;
   bottom: 55px;
-  right: 200px;
-  font-size: 4rem;
+  right: 6.5%;
+  font-size: 3rem;
   color: black;
   text-decoration: none;
-  padding: 23px;
-  background-color: rgba(169, 169, 169, 0.473);
+  padding: 20px;
+  background-color: rgba(169, 169, 169, 0.205);
   border-radius: 50%;
-  -webkit-box-shadow: inset -2px 3px 40px 7px #6D6D6D; 
-box-shadow: inset -2px 3px 40px 7px #6D6D6D;
+  -webkit-box-shadow: inset -2px 3px 40px 7px #afafaf; 
+box-shadow: inset -2px 3px 40px 7px #afafaf; 
+border: 2px solid #afafaf02;
+}
+
+
+.errorMessage {
+  height: 300px;
+  padding: 100px;
+}
+
+/* SKIP LINK  */
+.skipLink {
+  position: absolute;
+  left: -3000px;
+  top: 10px;
+  z-index: 999;
+  background-color: #ffffff;
+  color: #1f2022;
+}
+
+.skipLink:focus {
+  left: 0;
+}
+
+
+.backtoTop:focus,
+.backtoTop:hover {
+  border: 2px solid rgb(59, 59, 59);
+}
+@media (max-width: 650px){
+
+  .backtoTop {
+
+    font-size: 2.5rem;
+    padding: 10px;
+    bottom: 20px;
+  right: 4%;
+  }
+
 }

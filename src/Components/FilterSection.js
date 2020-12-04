@@ -61,6 +61,15 @@ import FilterButton from "./FilterButton.js";
             />
             <FilterButton
               type="radio"
+              id="allItems"
+              name="filterSection"
+              value="allItems"
+              labelHtmlFor="allItems"
+              labelText="Books"
+              labelNumberOfItems={this.props.allbooks.length}
+            />
+            <FilterButton
+              type="radio"
               id="eBooks"
               name="filterSection"
               value="eBooks"
@@ -86,7 +95,7 @@ import FilterButton from "./FilterButton.js";
               name="filterCategory"
               value="fiction"
               labelHtmlFor="fiction"
-              labelText="fiction"
+              labelText="Fiction"
               labelNumberOfItems=""
             />
             <FilterButton
@@ -95,11 +104,10 @@ import FilterButton from "./FilterButton.js";
               name="filterCategory"
               value="nonfiction"
               labelHtmlFor="nonfiction"
-              labelText="nonfiction"
+              labelText="Nonfiction"
               labelNumberOfItems=""
             />
           </div>
-          
         </div>
       );
     }

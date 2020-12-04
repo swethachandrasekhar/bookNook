@@ -8,8 +8,6 @@ import './fontawesome.js'
 import {
   faShoppingCart,
   faHeart,
-  faTimes,
-  faCoffee,
 } from "@fortawesome/fontawesome-free-solid";
 // import BackgroundVideo from './backgroundVideo.js'
 
@@ -54,7 +52,8 @@ class Header extends Component {
         const wishListArray = booksArray.filter((book) => {
           if (book.addedToWishlist) {
             return book;
-          }
+          } 
+
         });
 
         const numberOfItemsInWishlist = wishListArray.length;
@@ -85,46 +84,54 @@ class Header extends Component {
     // );
     return (
       <header>
-        {/* <video
-          src="https://youtu.be/hlWiI4xVXKY"
-          autoPlay="true"
-          loop="true"
-        ></video> */}
-        <div className="siteHeader">
-          <h1 className="fullWidthWrapper">
-            {" "}
-            <span className="logoBook">Book</span>
-            <span className="logoPipe">📖</span>{" "}
-            <span className="logoTopia">topia</span>
-          </h1>
+        <a href="#mainContent" class="skipLink">
+          Skip to main content.
+        </a>
+        <div className="wrapper">
+          <div className="siteHeader">
+            <h1>
+              {" "}
+              <span className="logoBook">Book</span>
+              <span className="logoPipe">📖</span>{" "}
+              <span className="logoTopia">topia</span>
+            </h1>
 
-          <nav className="shoppingCartAndWishlist">
-            <li>
-              <button
-                className="wishlist"
-                onClick={this.props.handleShowWishlist}
-              >
-                <FontAwesomeIcon icon={faHeart} className="wishlistIcon" />
-                <span>Wishlist</span>
-              </button>
-              <p className="wishlistCount">{this.state.wishlistCount}</p>
-            </li>
-            <li>
-              {/* <input type="checkbox" id="toggle" name="toggle"></input>
+            <nav className="shoppingCartAndWishlist">
+              <li>
+                <button
+                  className="wishlist"
+                  onClick={this.props.handleShowWishlist}
+                >
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    className="wishlistIcon"
+                    aria-label="Wishlist"
+                  />
+                  <span>Wishlist</span>
+                </button>
+                <p className="wishlistCount">{this.state.wishlistCount}</p>
+              </li>
+              <li>
+                {/* <input type="checkbox" id="toggle" name="toggle"></input>
             <label class="cartCloseButton" htmlFor="toggle">
               <FontAwesomeIcon icon={faShoppingCart} />
             </label> */}
 
-              <button className="showCart" onClick={this.props.handleShowCart}>
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  className="showCartIcon"
-                />
-                <span>Cart</span>
-              </button>
-              <p className="cartCount">{this.state.cartCount}</p>
-            </li>
-          </nav>
+                <button
+                  className="showCart"
+                  onClick={this.props.handleShowCart}
+                >
+                  <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    className="showCartIcon"
+                    aria-label="Cart"
+                  />
+                  <span>Cart</span>
+                </button>
+                <p className="cartCount">{this.state.cartCount}</p>
+              </li>
+            </nav>
+          </div>
         </div>
         <div className="logo ">
           {/* <h1 className="wrapper">Booktopia</h1> */}
