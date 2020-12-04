@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import firebase from './firebase.js';
-// import Inventory from './Inventory.js';
+// Cart display class Component
 
+import React, { Component } from "react";
+import firebase from "./firebase.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./fontawesome.js";
 import { faTimes } from "@fortawesome/fontawesome-free-solid";
+
 class CartDisplay extends Component {
   constructor() {
     super();
@@ -14,44 +14,44 @@ class CartDisplay extends Component {
     };
   }
 
+  // Function to Handle remove from Cart
   handleRemoveCartItem = (bookTitle, index) => {
+    //Create a reference to the DB
     const dbRefCart = firebase.database().ref(`cart`);
-    const newCartArray = this.state.cartItems.filter((cartItem) => {
-      return cartItem[0] !== index;
-    });
+
     let bookIndex = "";
+    //Find that item in the books array so inventory can be updated by 1
     const bookItem = this.props.allbooks.filter((book, index) => {
       if (book.title === bookTitle) {
         bookIndex = index;
       }
       return book.title === bookTitle;
     });
-    console.log(bookItem);
-    bookItem[0].inventory = bookItem[0].inventory + 1;
-    const dbRef = firebase.database().ref(`books/${bookIndex}`);
-    console.log(bookItem);
 
+    bookItem[0].inventory = bookItem[0].inventory + 1;
+
+    //Update the inventory of the book by 1 in the DB
+    const dbRef = firebase.database().ref(`books/${bookIndex}`);
+    dbRef.update(bookItem[0]);
+    //Remove cart item
     dbRefCart.child(index).remove();
-     dbRef.update(bookItem[0]);
-    this.setState({
-      cartItems: newCartArray,
-    });
   };
 
   componentDidMount() {
+    // Create a ref to the Cart table in the DB
+
     const dbRefCart = firebase.database().ref("cart");
     dbRefCart.on("value", (data) => {
       //Grab data from database
       let cartObject = data.val();
-
-      // console.log(cartObject);
+      // ERROR HANDLING if cart object is null set the array to empty
       if (cartObject !== null) {
         let cartArray = Object.entries(cartObject);
         let price = 0;
+
+        // grab price for each book and calculate subtotal
         cartArray.forEach((cartItem) => {
           price = price + cartItem[1].price;
-
-          console.log(price);
         });
         price = price.toFixed(2);
 
@@ -67,32 +67,28 @@ class CartDisplay extends Component {
       }
     });
   }
+
+  // Set the display state when X is clicked to close the cart
   cartCloseButton = () => {
-
-    this.props.CartDisplayState()
-
-  }
+    this.props.CartDisplayState();
+  };
 
   render() {
-    console.log("inside cartDisplau.js", this.props.showCart);
+    // User require  context to display locally hosted images
+
     const images = require.context(`./../assets`, true);
-    console.log(images);
     const showCartFlag = this.props.showCart;
     let cartVisible = "";
+    // Handle Display cart class name based on the showCart flag
     showCartFlag
       ? (cartVisible = "cartDisplay visible")
       : (cartVisible = "cartDisplay");
-    console.log("cartVisible", cartVisible);
 
-    // console.log("inside cart", this.props.cartItems);
     return (
       <div className={cartVisible}>
         <div className="cartWrapper">
           {/* display close button */}
-          {/* <input type="checkbox" id="toggle" name="toggle"></input>
-          <label class="cartCloseButton" htmlFor="toggle">
-            <FontAwesomeIcon icon={faTimes} />
-          </label> */}
+
           <button className="cartCloseButton" onClick={this.cartCloseButton}>
             <FontAwesomeIcon icon={faTimes} aria-label="Close" />
           </button>
@@ -104,14 +100,13 @@ class CartDisplay extends Component {
             <ul>
               {this.state.cartItems.map((item, index) => {
                 const img_src = images(item[1].bookImage);
-                console.log(img_src);
+              
 
                 return (
                   <li className="cartItem" key={item[0]}>
                     <div className="cartItemBookDetails">
                       <img
                         className="cartImage"
-                        // src={item[1].bookImage}
                         src={img_src.default}
                         alt={item[1].title}
                       />

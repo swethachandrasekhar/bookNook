@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import Book from './Book.js'
+// Display inventory class component
+
+import React, { Component } from "react";
+import Book from "./Book.js";
 import firebase from "./firebase.js";
 
-
 class InventoryDisplay extends Component {
-  constructor(props) {
-    super(props);
-  }
+  //Function to handle Add to Cart click
   addToCart = (book, index) => {
-    console.log(book);
+    //create a reference to the DB
     const dbItemRef = firebase.database().ref(`books/${index}`);
-
     const dbRefCart = firebase.database().ref("cart");
 
     //Push item into the cart array in the database
@@ -18,64 +16,50 @@ class InventoryDisplay extends Component {
 
     // reduce book inventory by 1
     book.inventory = book.inventory - 1;
-    
-    //Update the invetory in the database
+
+    //Update the inventory in the database
     dbItemRef.set(book);
   };
 
-  handleWishlist = (book, index) => {
-    console.log(book.title);
-    //when i click on a book, 
-    //i get the index of that title in the main array
-    const booksArray = [...this.props.books]
+  //Function to handle Add / Remove from Wishlist button click
+  handleWishlist = (book) => {
+    const booksArray = [...this.props.books];
     let indexOfWishlistItem = -1;
-    for (let i = 0; i < booksArray.length; i++){
-        if (booksArray[i].title === book.title)
-        indexOfWishlistItem = i; 
-
+    // find the clicked book in the array of books list
+    for (let i = 0; i < booksArray.length; i++) {
+      if (booksArray[i].title === book.title) indexOfWishlistItem = i;
     }
-    
-    const newDisplayList = this.props.displayList.map((displayedBook) => {
-      if(displayedBook.title === book.title) 
-      {
-        displayedBook.addedToWishlist = !(displayedBook.addedToWishlist);
-        
-      }
-      return displayedBook;
-    })
-    
 
-    console.log(indexOfWishlistItem)
+    // Create a DB ref to the book object
     const dbRef = firebase.database().ref(`books/${indexOfWishlistItem}`);
     let newWishlistObject;
     dbRef.on("value", (data) => {
       //   //Grab data from database
       let wishlistObject = data.val();
-      console.log(wishlistObject);
+
       newWishlistObject = { ...wishlistObject };
     });
-      newWishlistObject.addedToWishlist = !(newWishlistObject.addedToWishlist);
-      console.log(newWishlistObject);
-     
-      dbRef.update(newWishlistObject);
-      this.props.parentSetStateDisplayList(newDisplayList);
 
-    
+    // Flip the flag of the book object
+    newWishlistObject.addedToWishlist = !newWishlistObject.addedToWishlist;
 
-    // this.props.displayWishlist();
-    
+    // Update the DB book object with the new wishlist object
+    dbRef.update(newWishlistObject);
   };
 
   render() {
-    
+    // Use require context to grab the images
     const images = require.context(`./../assets`, true);
-    console.log(this.props);
+
     return (
-      <div className='inventoryDisplay'>
-        <div className="inventoryContainer">
-          {this.props.displayList.map((book, index) => {
+      // <div className="inventoryDisplay" >
+        // <div className="inventoryContainer">
+
+          
+            this.props.displayList.map((book, index) => {
             const img_src = images(book.bookImage);
             return (
+              // Calling book component to display each book
               <Book
                 book={book}
                 keyID={index}
@@ -88,9 +72,9 @@ class InventoryDisplay extends Component {
                 addToCart={this.addToCart}
               />
             );
-          })}
-        </div>
-      </div>
+          })
+        // </div>
+      // {/* </div> */}
     );
   }
 }

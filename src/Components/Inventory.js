@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import firebase from './firebase.js'
-import FilterSection from './FilterSection.js'
-import InventoryDisplay from './InventoryDisplay.js'
+import React, { Component } from "react";
+import firebase from "./firebase.js";
+import FilterSection from "./FilterSection.js";
+import InventoryDisplay from "./InventoryDisplay.js";
 import CartDisplay from "./CartDisplay.js";
-import WishlistDisplay from './wishlistDisplay.js'
+import WishlistDisplay from "./WishlistDisplay.js";
 
 class Inventory extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       books: [],
       ebooksList: [],
@@ -22,10 +22,10 @@ class Inventory extends Component {
   }
 
   componentDidMount() {
+    //create a reference to the DB to get all the books in the inventory
     const dbRef = firebase.database().ref("books");
-    // const dbRefCart = firebase.database().ref("cart");
-    // const dbRefWishlist = firebase.database().ref("books");
-    // const firebaseObj;
+
+    //Grab all the data from DB : event listener
     dbRef.on("value", (data) => {
       //Grab data from database
       const firebaseObj = data.val();
@@ -35,9 +35,10 @@ class Inventory extends Component {
       let audioBooksArray = [];
 
       // Go over each item in the array and store in the temp array
-      console.log(`In here....`, firebaseObj);
+      // Error handling : if empty object is returned from DB then set the empty list flag to true
       if (firebaseObj !== null) {
         firebaseObj.forEach((book) => {
+          //Push book to audiobooks and ebooks array based on the filter
           if (book.mediaType === "eBooks") {
             ebooksListArray.push(book);
           } else if (book.mediaType === "audioBooks") {
@@ -47,8 +48,7 @@ class Inventory extends Component {
           booksArray.push(book);
         });
 
-        console.log(booksArray);
-
+        // set state with all the parsed data
         this.setState({
           books: booksArray,
           ebooksList: ebooksListArray,
@@ -58,84 +58,64 @@ class Inventory extends Component {
         });
       } else {
         this.setState({
-          emptyList : true
+          emptyList: true,
         });
       }
     });
-
-    
-
-    // dbRefWishlist.on("value", (data) => {
-    //   //Grab data from database
-    //   let wishlistObject = data.val();
-
-    //   console.log(wishlistObject);
-
-
-    //   if (wishlistObject !== null) {
-    //     let wishlistArray = Object.entries(wishlistObject);
-    //     console.log(`cartArray is `, wishlistArray);
-    //     this.setState({
-    //       wishlistItems: wishlistArray,
-    //     });
-    //   } else {
-    //     this.setState({
-    //       wishlistItems: [],
-    //     });
-    //   }
-    // });
   }
 
-  getCatergories = () => {};
-
+  //function set state the main books list (function called from child component)
   parentSetStateBooks = (obj) => {
     this.setState({ books: obj });
   };
+
+  //function set state the displayed books list (function called from child component)
   parentSetStateDisplayList = (obj) => {
-    console.log(obj);
     this.setState({ displayList: obj });
   };
+
+  //function set state the main display list (function called from child component)
   parentSetStateMainDisplay = (obj) => {
-    console.log(obj);
     this.setState({
       mainDisplay: obj,
       displayList: obj,
     });
   };
 
+  //function set state the cart list (function called from child component)
   parentSetStateCartItems = (obj) => {
-    console.log(obj);
     this.setState({ cartItems: obj });
   };
+
+  //function set state the subtotal (function called from child component)
   parentSetStateSubtotal = (obj) => {
-    console.log(obj);
     this.setState({ subtotal: obj });
   };
-  displayWishlist = () =>{
 
-    const wishlistItems = this.state.books.filter((book)=>{
-            return (book.addedToWishlist)
-    })
-
-   this.setState({
-
-     mainDisplay: wishlistItems,
-     displayList: wishlistItems,
-   });
-
-  }
+  //Handle when display wishlist is clicked.
+  displayWishlist = () => {
+    //filter through the books array and find the flag that is set to true
+    const wishlistItems = this.state.books.filter((book) => {
+      return book.addedToWishlist;
+    });
+    // set state the wishlist items array
+    this.setState({
+      mainDisplay: wishlistItems,
+      displayList: wishlistItems,
+    });
+  };
 
   render() {
-    
+    // ERROR HANDLING - If the DB returned an null object then display user a message otherwise display the inventory
     return this.state.emptyList ? (
       <div className="errorMessage">
         Sorry☹️! Something went wrong. Please try again later{" "}
       </div>
     ) : (
-      <main id='mainContent'>
+      <main id="mainContent">
         <section className="inventorySection">
+          {/* filter section component  */}
           <FilterSection
-            // handleFilter={this.handleFilter}
             allbooks={this.state.books}
             ebooksOnly={this.state.ebooksList}
             audioBooksOnly={this.state.audioBookslist}
@@ -146,37 +126,34 @@ class Inventory extends Component {
             displayWishlist={this.displayWishlist}
           />
 
-          <InventoryDisplay
-            mainDisplay={this.state.mainDisplay}
-            displayList={this.state.displayList}
-            addToCart={this.addToCart}
-            parentSetStateBooks={this.parentSetStateBooks}
-            books={this.state.books}
-            displayWishlist={this.displayWishlist}
-            parentSetStateDisplayList={this.parentSetStateDisplayList}
-          />
+          {/* Inventory display component  */}
+          <div className="inventoryDisplay">
+            <div className="inventoryContainer">
+              <InventoryDisplay
+                mainDisplay={this.state.mainDisplay}
+                displayList={this.state.displayList}
+                addToCart={this.addToCart}
+                parentSetStateBooks={this.parentSetStateBooks}
+                books={this.state.books}
+                displayWishlist={this.displayWishlist}
+                parentSetStateDisplayList={this.parentSetStateDisplayList}
+              />
+            </div>
+          </div>
+
+          {/* Cart display component  */}
           <CartDisplay
             showCart={this.props.showCart}
             CartDisplayState={this.props.CartDisplayState}
             allbooks={this.state.books}
-            // cartItems={this.state.cartItems}
-            // handleRemoveCartItem={this.handleRemoveCartItem}
-            // parentSetStateCartItems={this.parentSetStateCartItems}
-            // parentSetStateSubtotal={this.parentSetStateSubtotal}
           />
-
+          {/* Wishlist Display component  */}
           <WishlistDisplay
             showWishlist={this.props.showWishlist}
             WishlistDisplayState={this.props.WishlistDisplayState}
-            // cartItems={this.state.cartItems}
-            // handleRemoveCartItem={this.handleRemoveCartItem}
-            // parentSetStateCartItems={this.parentSetStateCartItems}
-            // parentSetStateSubtotal={this.parentSetStateSubtotal}
           />
-
-          {/* <div className="wishlistDisplay"></div> */}
-        </section>
-      </main>
+         </section>
+       </main>
     );
   }
 }

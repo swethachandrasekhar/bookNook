@@ -16,7 +16,7 @@
       "bookImage": "./a-promised-land-2.jpg",
       "price": 18.99,
       "inventory": 15,
-      "mediaType": "eBooks",
+      "mediaType": "audioBooks",
       "addedToWishlist": false,
       "category": "nonfiction"
     },
@@ -36,7 +36,7 @@
       "authorName": "Ta-Nehisi Coates",
       "bookImage": "./between-the-world-and-me.jpg",
       "price": 13.99,
-      "mediaType": "eBooks",
+      "mediaType": "audioBooks",
       "addedToWishlist": false,
       "category": "nonfiction"
     },
@@ -46,7 +46,7 @@
       "authorName": "Mark Manson",
       "bookImage": "./the-subtle-art-of-not-giving-a-f-ck.jpg",
       "price": 12.99,
-      "mediaType": "eBooks",
+      "mediaType": "audioBooks",
       "addedToWishlist": false,
       "category": "nonfiction"
     },

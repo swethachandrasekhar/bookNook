@@ -1,105 +1,89 @@
+//CART ITEMS DISPLAY STYLING
+
 
 .cartWrapper {
   width: 85%;
   margin: 0 auto;
-  
 }
 
-
 .cartDisplay {
-    min-width: 600px;
-    width: 0;
+  min-width: 600px;
+  width: 0;
 
-    font-family: $bodyFont;
-    background-color: #fafafa;
-    position: fixed;
-    // top: 0;
-    top: -13000px;
-    right: 0;
-    height: 100%;
-    z-index: 20;
-    box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.521);
-    overflow-y: scroll;
-  
-
+  font-family: $bodyFont;
+  background-color: $addToCart;
+  position: fixed;
+  top: -13000px;
+  right: 0;
+  height: 100%;
+  z-index: 20;
+  box-shadow: 2px 0px 10px 0px rgba(0, 0, 0, 0.521);
+  overflow-y: scroll;
 }
 
 .cartDisplay.visible {
-   top: 0;
+  top: 0;
 }
 
 .cartItems {
-
   padding-bottom: 50px;
-    
 
-    .cartItem {
+  .cartItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+  }
 
-        display: flex;
-        justify-content: space-between;
-        margin: 25px 0;
-        // padding: ;
-        // align-items: ;
+  .cartItemBookPrice {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
 
+  .subTotal {
+    text-align: right;
+    margin: 20px 0;
+
+    .subTotalAmount {
+      padding-left: 60px;
+      font-weight: bold;
     }
-
-   .cartItemBookPrice {
-     font-size: 1.8rem;
-     font-weight: bold;
-   }
-
-   .subTotal {
-     text-align: right;
-     margin: 20px 0;
-
-     .subTotalAmount {
-       padding-left: 60px;
-       font-weight: bold;
-     }
-   }
-   .carFooter {
-     display: flex;
-     justify-content: space-between;
-   }
-   
+  }
+  .carFooter {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.cartItemBookDetails{
-            display: flex;
-            
-          .bookDetailsAndRemove {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin: 0 15px;
+.cartItemBookDetails {
+  display: flex;
 
+  .bookDetailsAndRemove {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 15px;
 
-            .cartTitleAndAuthor {
-              text-align: left;
+    .cartTitleAndAuthor {
+      text-align: left;
+    }
+  }
 
-            }
-          }
-             
-          .cartImage {
+  .cartImage {
+    height: 120px;
+    width: 85px;
+    object-fit: cover;
+  }
+  .cartItemtitle {
+    font-size: 1.8rem;
+    line-height: normal;
+  }
 
-            height: 120px;
-            width: 85px;
-            object-fit: cover;
-
-             }
-            .cartItemtitle {
-            font-size: 1.8rem;
-            line-height: normal;
-            }
-
-        .cartItemAuthorName {
-            font-size: 1.4rem;
-            color: rgb(65, 63, 63);
-        }
-
-        }
-
+  .cartItemAuthorName {
+    font-size: 1.4rem;
+    color: rgb(65, 63, 63);
+  }
+}
 
 .cartHeader {
   display: flex;
@@ -115,7 +99,6 @@
   font-size: 4rem;
   padding: 5px;
   border: none;
-  
 }
 
 .removeFromCart {
@@ -131,7 +114,7 @@
 
 .checkOut {
   width: 45%;
-  background-color: #a00b0b;
+  background-color: $headerLinks;
   font-family: $bodyFont;
   padding: 8px;
   line-height: normal;
@@ -140,60 +123,55 @@
   font-weight: bold;
   font-size: 1.7rem;
   border: 4px solid transparent;
-
 }
 .carFooter {
-    a {
-      font-size: 1.7rem;
-      color: black;
-      font-weight: bold;
-      padding-top: 16px;
-      line-height: normal;
-    }
+  a {
+    font-size: 1.7rem;
+    color: $bodyColor;
+    font-weight: bold;
+    padding-top: 16px;
+    line-height: normal;
+  }
 }
-.removeFromCart:hover, .removeFromCart:focus {
-color:#a00b0b ;
-
+.removeFromCart:hover,
+.removeFromCart:focus {
+  color: $headerLinks;
 }
 .checkOut:hover {
   cursor: pointer;
   background-color: #fafafa;
-  color:#a00b0b ;
-  border: 4px solid #a00b0b ;
+  color: $headerLinks;
+  border: 4px solid $headerLinks;
 }
 
-.cartCloseButton:hover, .cartCloseButton:focus {
-  color:#a00b0b;
+.cartCloseButton:hover,
+.cartCloseButton:focus {
+  color: $headerLinks;
   cursor: pointer;
-
 }
 
-.carFooter:hover, .carFooter:focus {
-
+.carFooter:hover,
+.carFooter:focus {
   a {
-    color:#a00b0b ;
+    color: $headerLinks;
   }
 }
 
-@media (max-width: 900px){
-
+@media (max-width: 900px) {
   .cartDisplay {
     min-width: 350px;
   }
-
 }
 
-@media (max-width: 550px){
-
+@media (max-width: 550px) {
   .cartDisplay {
     min-width: 100vw;
   }
 
   .cartHeader {
     font-size: 1.7rem;
-     p {
-       padding-left: 10px;
-     }
+    p {
+      padding-left: 10px;
+    }
   }
-
 }

@@ -1,19 +1,13 @@
-import React, { Component } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// HEADER Class Component
+
+import { Component } from "react";
 import firebase from "./firebase.js";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCheckSquare, faCoffee } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './fontawesome.js' 
-import {
-  faShoppingCart,
-  faHeart,
-} from "@fortawesome/fontawesome-free-solid";
-// import BackgroundVideo from './backgroundVideo.js'
+import { faShoppingCart, faHeart } from "@fortawesome/fontawesome-free-solid";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       wishlistCount: "",
       cartCount: "",
@@ -21,19 +15,19 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log("inside header");
-
+    // Creating a reference to the database to get cart items and books
     const dbRefCart = firebase.database().ref("cart");
     const dbRefBooks = firebase.database().ref("books");
 
     dbRefCart.on("value", (data) => {
       //Grab data from database
       const cartObject = data.val();
-      // let cartArray = Object.values(cartObject);
+
+      //Error handling: Check if the returned object from DB is empty, if it is empty set count to 0
       if (cartObject !== null) {
         let cartArray = Object.entries(cartObject);
         const numberOfItemsInCart = cartArray.length;
-        console.log(`cartArray is `, cartArray);
+        // Set Cart items count
         this.setState({
           cartCount: numberOfItemsInCart,
         });
@@ -43,21 +37,26 @@ class Header extends Component {
         });
       }
     });
+
+    // Books Inventory
     dbRefBooks.on("value", (data) => {
       //Grab data from database
       const wishlistObject = data.val();
+
+      //Error handling: Check if the returned object from DB is empty, if it is empty set count to 0
       if (wishlistObject !== null) {
         let booksArray = Object.values(wishlistObject);
 
+        // filter the list to get the book with added to wishlist flag is true
         const wishListArray = booksArray.filter((book) => {
           if (book.addedToWishlist) {
             return book;
-          } 
-
+          }
         });
 
         const numberOfItemsInWishlist = wishListArray.length;
 
+        //Set the wishlist count
         this.setState({
           wishlistCount: numberOfItemsInWishlist,
         });
@@ -67,24 +66,13 @@ class Header extends Component {
         });
       }
     });
-
-    // let wishlistArray = this.state.
   }
-  openInNewTab = () => {
-    var win = window.open("./wishlist.html", "_blank");
-    win.focus();
-  };
-  
+
   render() {
-    console.log("inside header.js", this.props.showCart);
-    // console.log(
-    //   `cart count and wishlist count `,
-    //   this.state.cartCount,
-    //   this.state.wishlistCount
-    // );
     return (
       <header>
-        <a href="#mainContent" class="skipLink">
+        {/* SKIP LINK for accessibility  */}
+        <a href="#mainContent" className="skipLink">
           Skip to main content.
         </a>
         <div className="wrapper">
@@ -92,10 +80,13 @@ class Header extends Component {
             <h1>
               {" "}
               <span className="logoBook">Book</span>
-              <span className="logoPipe">📖</span>{" "}
+              <span className="logoPipe" aria-hidden="true">
+                📖
+              </span>{" "}
               <span className="logoTopia">topia</span>
             </h1>
 
+            {/* Header Link for cart and wishlist  */}
             <nav className="shoppingCartAndWishlist">
               <li>
                 <button
@@ -112,11 +103,6 @@ class Header extends Component {
                 <p className="wishlistCount">{this.state.wishlistCount}</p>
               </li>
               <li>
-                {/* <input type="checkbox" id="toggle" name="toggle"></input>
-            <label class="cartCloseButton" htmlFor="toggle">
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </label> */}
-
                 <button
                   className="showCart"
                   onClick={this.props.handleShowCart}
@@ -133,14 +119,7 @@ class Header extends Component {
             </nav>
           </div>
         </div>
-        <div className="logo ">
-          {/* <h1 className="wrapper">Booktopia</h1> */}
-        </div>
-        {/* <video  loop autoplay>
-            <source src="" type="video/mp4">
-            <source src="" type="video/ogg">
-        
-        </video> */}
+        <div className="logo "></div>
       </header>
     );
   }

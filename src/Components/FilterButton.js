@@ -1,25 +1,25 @@
-const { faSquareFull } = require("@fortawesome/fontawesome-free-solid");
+//Filter / input button functional component
 
-const FilterButton = (props) => {
+const FilterButton = ({
+  type,
+  id,
+  name,
+  value,
+  labelText,
+  labelNumberOfItems,
+}) => {
   return (
     <div className="filterButton">
-      <input
-        type={props.type}
-        id={props.id}
-        name={props.name}
-        value={props.value}
-      />
-      <label htmlFor={props.id}>
+      <input type={type} id={id} name={name} value={value} />
+      <label htmlFor={id}>
         {" "}
-        {props.labelText}{" "}
-        <span className='itemsCount'>
-          {props.labelNumberOfItems === ""
-            ? null
-            : `(${props.labelNumberOfItems})`}{" "}
+        {labelText}{" "}
+        <span className="itemsCount">
+          {labelNumberOfItems === "" ? null : `(${labelNumberOfItems})`}{" "}
         </span>
       </label>
     </div>
   );
-}; 
+};
 
 export default FilterButton;

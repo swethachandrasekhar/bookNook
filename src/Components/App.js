@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import Header from './Header.js'
-import '../styles/App.scss';
-import Inventory from './Inventory.js';
-import "./fontawesome.js";
+import { Component } from "react";
+import Header from "./Header.js";
+import Inventory from "./Inventory.js";
+import "../styles/App.scss";
 
 
 class App extends Component {
@@ -10,31 +9,34 @@ class App extends Component {
     super();
 
     this.state = {
+      //flags to manage the wishlist and cart display in the header
       showCart: false,
       showWishlist: false,
     };
   }
-  handleShowCart = () => {
-    // const showCartFlag
 
+  //function to toggle the cart display state on click
+  handleShowCart = () => {
     this.setState({
       showCart: !this.state.showCart,
     });
   };
 
+  //function to set cart display state to false on clicking close button
   CartDisplayState = () => {
     this.setState({
       showCart: false,
     });
   };
-  handleShowWishlist = () => {
-    // const showCartFlag
 
+  //function to toggle the cart display state on click
+  handleShowWishlist = () => {
     this.setState({
       showWishlist: !this.state.showWishlist,
     });
   };
 
+  //function to set wishlist display state to false on clicking close button
   WishlistDisplayState = () => {
     this.setState({
       showWishlist: false,
@@ -42,9 +44,9 @@ class App extends Component {
   };
 
   render() {
-    console.log("inside app.js", this.state.showCart);
     return (
       <div className="App">
+        {/* Header component  */}
         <Header
           showCart={this.state.showCart}
           handleShowCart={this.handleShowCart}
@@ -52,6 +54,7 @@ class App extends Component {
           handleShowWishlist={this.handleShowWishlist}
         />
 
+        {/* Inventory Section Component  */}
         <Inventory
           showCart={this.state.showCart}
           handleShowCart={this.handleShowCart}
@@ -60,12 +63,22 @@ class App extends Component {
           CartDisplayState={this.CartDisplayState}
           WishlistDisplayState={this.WishlistDisplayState}
         />
-        <a href="#mainContent" className="backtoTop" aria-label="back to the top">
+
+        {/* Back to the top link  */}
+        <a
+          href="#mainContent"
+          className="backtoTop"
+          aria-label="back to the top"
+        >
           ↑
         </a>
+
+        {/* footer section  */}
         <footer>
           <div className="wrapper footerText">
-            <p>All Product design and images credited to Rakuten Kobo Inc | PRH</p>
+            <p>
+              All Product design and images credited to Rakuten Kobo Inc | PRH
+            </p>
             <p>
               Created @ <a href="https://junocollege.com/"> Juno College </a>|
               Swetha Chandrasekhar
@@ -78,5 +91,3 @@ class App extends Component {
 }
 
 export default App;
-
-
