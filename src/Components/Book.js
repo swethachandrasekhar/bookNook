@@ -62,7 +62,7 @@ render() {
         <p className="bookPrice">
           $ {bookPrice}
           {/* If inventory is less than <=5 and more than 1 then display number of books available  */}
-          {book.inventory <= 5 && book.inventory >= 1 ? (
+          {book.inventory <= 15 && book.inventory >= 1 ? (
             <span className="inventoryLeft">{book.inventory} available</span>
           ) : null}
         </p>
