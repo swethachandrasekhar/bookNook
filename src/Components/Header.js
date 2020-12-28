@@ -51,7 +51,7 @@ class Header extends Component {
         const wishListArray = booksArray.filter((book) => {
           if (book.addedToWishlist) {
             return book;
-          } 
+          } else return null;
         });
 
         const numberOfItemsInWishlist = wishListArray.length;
@@ -80,10 +80,10 @@ class Header extends Component {
           <div className="siteHeaderWrapper">
             <h1>
               {" "}
-              <span className="logoBook">Book</span>
               <span className="logoPipe" aria-hidden="true">
                 📖
               </span>{" "}
+              <span className="logoBook">Book</span>
               <span className="logoTopia">topia</span>
             </h1>
 

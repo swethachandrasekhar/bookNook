@@ -39,6 +39,7 @@ class FilterSection extends Component {
       if (book.category === selectedInput) {
         return book;
       }
+      else return null;
     });
 
     //Set the display list using this function that sets parents state

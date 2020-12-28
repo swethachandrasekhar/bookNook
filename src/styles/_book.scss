@@ -50,7 +50,14 @@ h3 {
 .addToCart {
   border: 4px solid transparent;
   font-size: 1.5rem;
-  transition-duration: 0.25s;
+  transition-duration: 0.25s; 
+  width: 73%;
+  background-color: #595959;
+  color: $addToCart;
+  font-weight: bold;
+  padding: 8px 0;
+  line-height: normal;
+
 }
 
 .inventoryLeft {
@@ -122,4 +129,31 @@ h3 {
   }
 }
 
+.quickWishlist {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  // margin-left:5px ;
+  border: black 1px solid;
+ 
+  font-size: 1.5rem;
+  cursor: pointer;
+  // margin: ;
+}
+.heartShapeEmptyWishlistIcon {
+   padding: 2px;
+}
 
+
+.addTo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center ;
+}
+
+.quickWishlist:hover, .quickWishlist:focus {
+  
+ 
+}

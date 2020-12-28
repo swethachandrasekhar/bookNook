@@ -32,21 +32,22 @@ h1 {
 
   .logoBook {
     font-size: 3rem;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
   }
 
   .logoPipe {
-    font-size: 7rem;
-    font-weight: 100;
+    font-size: 4rem;
+    font-weight: 100; 
   }
 
   .logoTopia {
     font-size: 3rem;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
   }
 }
 
 .logo {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-top: 7vh;
   height: 70vh;
   min-height: 600px;
