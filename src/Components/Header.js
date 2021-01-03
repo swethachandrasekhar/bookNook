@@ -76,9 +76,9 @@ class Header extends Component {
           Skip to main content.
         </a>
 
-        <div className="siteHeader">
+        <div className="siteHeader" id="siteHeader">
           <div className="siteHeaderWrapper">
-            <a href="#">
+            <a href="#siteHeader">
               <h1>
                 {" "}
                 <span className="logoPipe" aria-hidden="true">

@@ -381,6 +381,7 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: black;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
