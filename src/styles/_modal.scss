@@ -1,0 +1,46 @@
+.modal {
+    background-color: rgba(212, 233, 212, 0.075);
+    color: green;
+    position: fixed;
+    border: 1px solid green;
+    top: 0;
+    left: 0; 
+    right: 0;
+    // border: 2px solid black;
+    height: 60px;
+    font-size: 1.6rem;
+    z-index: 999;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    
+      animation: 0.2s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.closeModal {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+     background-color: rgba(212, 233, 212, 0.205);
+    cursor: pointer;
+    background: none; 
+       color: green;
+    border-style: none;
+    padding: 2px 5px;
+    
+    text-decoration: none;
+    font-size: 2.5rem;
+
+}

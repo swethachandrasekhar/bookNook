@@ -3,8 +3,15 @@
 import React, { Component } from "react";
 import Book from "./Book.js";
 import firebase from "./firebase.js";
+import Modal from "./Modal.js";
 
 class InventoryDisplay extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: false,
+    };
+  }
   //Function to handle Add to Cart click
   addToCart = (book, index) => {
     //create a reference to the DB
@@ -19,8 +26,31 @@ class InventoryDisplay extends Component {
 
     //Update the inventory in the database
     dbItemRef.update(book);
+
+    this.toggleModal();
   };
 
+
+  //Function to display the Modal when item is added to wishlist and set time to 2 seconds and close modal
+  toggleModal = () => {
+    if (this.state.showModal === false) {
+      this.setState(
+        {
+          showModal: true,
+        },
+        () => {
+          setTimeout(this.handleModalClose, 2000);
+        }
+      );
+    }
+  };
+
+  //Function to handle Modal Close
+  handleModalClose = () => {
+    this.setState({
+      showModal: false,
+    })
+  }
   //Function to handle Add / Remove from Wishlist button click
   handleWishlist = (book) => {
     const booksArray = [...this.props.books];
@@ -55,17 +85,26 @@ class InventoryDisplay extends Component {
       const img_src = images(book.bookImage);
       return (
         // Calling book component to display each book
-        <Book
-          book={book}
-          keyID={index}
-          imageSrc={img_src.default}
-          bookTitle={book.title}
-          handleWishlist={this.handleWishlist}
-          wishlistFlag={book.addedToWishlist}
-          authorName={book.authorName}
-          bookPrice={book.price}
-          addToCart={this.addToCart}
-        />
+        <div>
+          <Book
+            book={book}
+            keyID={index}
+            imageSrc={img_src.default}
+            bookTitle={book.title}
+            handleWishlist={this.handleWishlist}
+            wishlistFlag={book.addedToWishlist}
+            authorName={book.authorName}
+            bookPrice={book.price}
+            addToCart={this.addToCart}
+          />
+          {this.state.showModal ? (
+            <Modal
+              itemAdded="book"
+              addedTo="cart"
+              handleModalClose={this.handleModalClose}
+            />
+          ) : null}
+        </div>
       );
     });
   }

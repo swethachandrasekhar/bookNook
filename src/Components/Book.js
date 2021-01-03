@@ -1,6 +1,7 @@
 // Books Functional Component : Displays each book in the inventory
 import hearts from '../assets/heart_vector.png';
 import redheart from '../assets/red_heart.png';
+import Modal from './Modal.js';
 import { Component } from 'react';
 
 class Book extends Component {
@@ -24,6 +25,8 @@ class Book extends Component {
     })
     }
   }
+
+  
 
 render() {
   
@@ -85,6 +88,7 @@ render() {
         }
         <button
           className="quickWishlist"
+          title='Add to Wishlist'
           onClick={() => handleWishlist(book, keyID)}
           onMouseEnter={() => this.wishlistOnHover()}
           onMouseLeave={() => this.wishlistOnHover()}
@@ -104,6 +108,7 @@ render() {
           )}
         </button>
       </div>
+      
     </div>
   );
 }

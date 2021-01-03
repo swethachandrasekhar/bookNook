@@ -18,26 +18,38 @@ header {
   z-index: 4;
   -webkit-box-shadow: inset -2px 3px 40px 7px #9e9e9e;
   box-shadow: inset -2px 3px 40px 7px #9e9e9e;
+
+  a {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+  
+    padding: 0px 0 0 15px;
+
+  }
 }
 
 h1 {
   font-family: $bodyFont;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  font-size: 4rem;
-  padding: 0px 0 0 15px;
+   font-size: 4rem;
+   width: 100%;
+   display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
   .logoBook {
     font-size: 3rem;
-    // padding-bottom: 10px;
   }
 
   .logoPipe {
     font-size: 4rem;
     font-weight: 100; 
+    
   }
 
   .logoTopia {

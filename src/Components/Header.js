@@ -78,14 +78,16 @@ class Header extends Component {
 
         <div className="siteHeader">
           <div className="siteHeaderWrapper">
-            <h1>
-              {" "}
-              <span className="logoPipe" aria-hidden="true">
-                📖
-              </span>{" "}
-              <span className="logoBook">Book</span>
-              <span className="logoTopia">topia</span>
-            </h1>
+            <a href="#">
+              <h1>
+                {" "}
+                <span className="logoPipe" aria-hidden="true">
+                  📖
+                </span>{" "}
+                <span className="logoBook">Book</span>
+                <span className="logoTopia">Nook</span>
+              </h1>
+            </a>
 
             {/* Header Link for cart and wishlist  */}
             <nav className="shoppingCartAndWishlist">
@@ -118,7 +120,6 @@ class Header extends Component {
                 <p className="cartCount">{this.state.cartCount}</p>
               </li>
             </nav>
-          
           </div>
         </div>
         <div className="logo "></div>
