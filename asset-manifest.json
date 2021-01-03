@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/bookNook/static/css/main.d070a9df.chunk.css",
-    "main.js": "/bookNook/static/js/main.546549eb.chunk.js",
-    "main.js.map": "/bookNook/static/js/main.546549eb.chunk.js.map",
+    "main.css": "/bookNook/static/css/main.33feeb26.chunk.css",
+    "main.js": "/bookNook/static/js/main.c6f4b963.chunk.js",
+    "main.js.map": "/bookNook/static/js/main.c6f4b963.chunk.js.map",
     "runtime-main.js": "/bookNook/static/js/runtime-main.2231a10f.js",
     "runtime-main.js.map": "/bookNook/static/js/runtime-main.2231a10f.js.map",
     "static/js/2.8b7d0053.chunk.js": "/bookNook/static/js/2.8b7d0053.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.8e27f79f.chunk.js": "/bookNook/static/js/3.8e27f79f.chunk.js",
     "static/js/3.8e27f79f.chunk.js.map": "/bookNook/static/js/3.8e27f79f.chunk.js.map",
     "index.html": "/bookNook/index.html",
-    "static/css/main.d070a9df.chunk.css.map": "/bookNook/static/css/main.d070a9df.chunk.css.map",
+    "static/css/main.33feeb26.chunk.css.map": "/bookNook/static/css/main.33feeb26.chunk.css.map",
     "static/js/2.8b7d0053.chunk.js.LICENSE.txt": "/bookNook/static/js/2.8b7d0053.chunk.js.LICENSE.txt",
     "static/media/a-conspiracy-of-bones-and-blood-1.jpg": "/bookNook/static/media/a-conspiracy-of-bones-and-blood-1.dbcf2c44.jpg",
     "static/media/a-promised-land-2.jpg": "/bookNook/static/media/a-promised-land-2.336167c0.jpg",
@@ -61,7 +61,7 @@
   "entrypoints": [
     "static/js/runtime-main.2231a10f.js",
     "static/js/2.8b7d0053.chunk.js",
-    "static/css/main.d070a9df.chunk.css",
-    "static/js/main.546549eb.chunk.js"
+    "static/css/main.33feeb26.chunk.css",
+    "static/js/main.c6f4b963.chunk.js"
   ]
 }
