@@ -17,3 +17,5 @@ An e-commerce site that sells books including e-books and audiobooks. Allows use
 
 1. Run **npm run build**
 1. Run **npm run deploy**
+
+Live link : https://swethachandrasekhar.github.io/bookNook/
