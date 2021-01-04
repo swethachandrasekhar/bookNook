@@ -1,6 +1,6 @@
 # BookNook
 
-React | JSX | Sass |Firebase DB
+React | JSX | Sass | Firebase DB
 
 An e-commerce site that sells books including e-books and audiobooks. Allows user to filter books, add/remove books to Wishlist/Cart.
 
